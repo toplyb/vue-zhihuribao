@@ -1,5 +1,4 @@
 const ENV = process.env.NODE_ENV
-
 module.exports = {
   lintOnSave: ENV !== 'production',
   publicPath: './',
@@ -7,7 +6,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:7000',
+        target: 'http://zhihuapi.kuxiaosheng.com',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
