@@ -4,6 +4,7 @@
     left-text="返回"
     left-arrow
     @click-left="onBack"
+    class="my-nav-bar"
   />
 </template>
 
@@ -31,5 +32,10 @@ export default {
 </script>
 
 <style scoped lang="less">
-
+  .my-nav-bar {
+    margin-bottom: 30px;
+    /deep/ .van-icon, /deep/.van-nav-bar__text {
+      color: #666;
+    }
+  }
 </style>

@@ -88,12 +88,13 @@ export default {
     const sendCode = async () => {
       try {
         await formRef.value.validate('phone')
-        const { code } = await api.phoneCode(mobile.value)
-        if (+code !== 0) {
+        const { code: statusCode, phoneCode } = await api.phoneCode(mobile.value)
+        if (+statusCode !== 0) {
           Toast('当前网络繁忙, 请稍后再试')
           return false
         }
 
+        code.value = phoneCode
         enable.value = false
         const timer = setInterval(() => {
           time.value--
@@ -105,7 +106,6 @@ export default {
           }
         }, 1000)
       } catch (err) {
-
       }
     }
 
